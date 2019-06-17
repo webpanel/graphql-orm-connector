@@ -133,9 +133,10 @@ url@^0.11.0:
     punycode "1.3.2"
     querystring "0.2.0"
 
-"webpanel-data@https://github.com/webpanel/data.git#develop":
-  version "0.0.40"
-  resolved "https://github.com/webpanel/data.git#39297a5096d287c72efd7b105521e34bafe3475d"
+webpanel-data@0.0.41:
+  version "0.0.41"
+  resolved "https://registry.yarnpkg.com/webpanel-data/-/webpanel-data-0.0.41.tgz#754df5bfe9b270733a9d00fe929d40be9b725722"
+  integrity sha512-gIxOAwP/F9qtZGOBM/kz245a/giz70sHqXM1fhc2T2GfQKzgcy9dr/Wskyy7oDXmgbiIXVPFmgn419XJna75HA==
   dependencies:
     inflection "^1.12.0"
     lodash "^4.17.10"

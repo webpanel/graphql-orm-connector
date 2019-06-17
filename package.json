@@ -10,7 +10,7 @@
   "dependencies": {
     "@types/inflection": "^1.5.28",
     "inflection": "^1.12.0",
-    "webpanel-data": "https://github.com/webpanel/data.git#develop"
+    "webpanel-data": "0.0.41"
   },
   "devDependencies": {},
   "peerDependencies": {},

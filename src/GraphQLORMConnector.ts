@@ -1,10 +1,10 @@
-import { GraphQLConnector } from 'webpanel-data';
-import { camelize } from 'inflection';
+import { DataSourceRequest, GraphQLConnector } from 'webpanel-data';
+import { camelize, singularize } from 'inflection';
 
 export class GraphQLORMConnector extends GraphQLConnector {
-  public inputTypeName(operation: string): string {
-    return `inflection.singularize(
-      inflection.camelize(request.name, false)
-    )}${camelize(operation)}Input`;
+  public inputTypeName(request: DataSourceRequest): string {
+    return `${singularize(camelize(request.name, false))}${camelize(
+      request.operation
+    )}Input`;
   }
 }
