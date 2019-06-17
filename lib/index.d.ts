@@ -1,0 +1,1 @@
+export { GraphQLORMConnector } from './GraphQLORMConnector';
