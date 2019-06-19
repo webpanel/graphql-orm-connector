@@ -14,8 +14,9 @@ export class GraphQLORMConnector extends GraphQLConnector {
   }
 
   public sortFormatName(sort: SortInfo): string {
-    return underscore(sort.columnKey, true) + sort.order == SortInfoOrder.ascend
-      ? '_ASC'
-      : '_DESC';
+    return (
+      underscore(sort.columnKey).toUpperCase() +
+      (sort.order == SortInfoOrder.ascend ? '_ASC' : '_DESC')
+    );
   }
 }
