@@ -133,10 +133,10 @@ url@^0.11.0:
     punycode "1.3.2"
     querystring "0.2.0"
 
-webpanel-data@0.0.41:
-  version "0.0.41"
-  resolved "https://registry.yarnpkg.com/webpanel-data/-/webpanel-data-0.0.41.tgz#754df5bfe9b270733a9d00fe929d40be9b725722"
-  integrity sha512-gIxOAwP/F9qtZGOBM/kz245a/giz70sHqXM1fhc2T2GfQKzgcy9dr/Wskyy7oDXmgbiIXVPFmgn419XJna75HA==
+webpanel-data@0.0.42:
+  version "0.0.42"
+  resolved "https://registry.yarnpkg.com/webpanel-data/-/webpanel-data-0.0.42.tgz#f7cabeef24cdc38527bf567c93f6bc6e37b0e2f9"
+  integrity sha512-Rh6Bo44gWh6xuajqYMz3i9Hg0fbmnU3yub6o4v97AprhuG3EYTZ57l5FPLA2O0iNRn+fgA+1j3m6Q80C12M8Dg==
   dependencies:
     inflection "^1.12.0"
     lodash "^4.17.10"
