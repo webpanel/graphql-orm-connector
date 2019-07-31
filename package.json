@@ -11,7 +11,9 @@
     "@types/inflection": "^1.5.28",
     "inflection": "^1.12.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "webpanel-data": "^0.0.43"
+  },
   "peerDependencies": {
     "webpanel-data": "*"
   },
