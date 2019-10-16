@@ -4,48 +4,10 @@ import {
   SortInfo,
   SortInfoOrder
 } from 'webpanel-data';
-import { camelize, singularize, underscore } from 'inflection';
+import { camelize, singularize } from 'inflection';
 
-const commonInitialisms: { [key: string]: string } = {
-  ACL: 'Acl',
-  API: 'Api',
-  ASCII: 'Ascii',
-  CPU: 'Cou',
-  CSS: 'Css',
-  DNS: 'Dns',
-  EOF: 'Eof',
-  GUID: 'Guid',
-  HTML: 'Html',
-  HTTP: 'Http',
-  HTTPS: 'Https',
-  ID: 'Id',
-  IP: 'Ip',
-  JSON: 'Json',
-  LHS: 'Lhs',
-  QPS: 'Qps',
-  RAM: 'Ram',
-  RHS: 'Rhs',
-  RPC: 'Rpc',
-  SLA: 'Sla',
-  SMTP: 'Smtp',
-  SQL: 'Sql',
-  SSH: 'Ssh',
-  TCP: 'Tcp',
-  TLS: 'Tls',
-  TTL: 'Ttl',
-  UDP: 'Udp',
-  UI: 'Ui',
-  UID: 'Uid',
-  UUID: 'Uuid',
-  URI: 'Uri',
-  URL: 'Url',
-  UTF8: 'Utf8',
-  VM: 'Vm',
-  XML: 'Xml',
-  XMPP: 'Xmpp',
-  XSRF: 'Xsrf',
-  XSS: 'Xss'
-};
+import { SortInfoValue } from 'webpanel-data/lib/connectors/graphql/GraphQLQuery';
+import { set } from 'lodash';
 
 export class GraphQLORMConnector extends GraphQLConnector {
   public inputTypeName(request: DataSourceRequest): string {
@@ -54,16 +16,12 @@ export class GraphQLORMConnector extends GraphQLConnector {
     )}Input`;
   }
 
-  public sortFormatName(sort: SortInfo): string {
-    let column = sort.columnKey;
+  public sortFormatName(sort: SortInfo): SortInfoValue {
+    const obj: { [key: string]: string } = {};
+    const order = sort.order === SortInfoOrder.ascend ? 'ASC' : 'DESC';
 
-    for (let key in commonInitialisms) {
-      column = column.replace(key, commonInitialisms[key]);
-    }
+    set(obj, sort.columnKey, order);
 
-    return (
-      underscore(column).toUpperCase() +
-      (sort.order == SortInfoOrder.ascend ? '_ASC' : '_DESC')
-    );
+    return obj;
   }
 }
