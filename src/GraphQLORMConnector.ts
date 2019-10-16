@@ -20,7 +20,9 @@ export class GraphQLORMConnector extends GraphQLConnector {
     const obj: { [key: string]: string } = {};
     const order = sort.order === SortInfoOrder.ascend ? 'ASC' : 'DESC';
 
-    set(obj, sort.columnKey, order);
+    for (const columnKey of sort.columnKey.split(',')) {
+      set(obj, columnKey, order);
+    }
 
     return obj;
   }
