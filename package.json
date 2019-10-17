@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@types/react": "^16.9.7",
-    "webpanel-data": "0.0.51"
+    "webpanel-data": "0.0.53"
   },
   "peerDependencies": {
     "webpanel-data": "*"

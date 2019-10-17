@@ -16,6 +16,18 @@ export class GraphQLORMConnector extends GraphQLConnector {
     )}Input`;
   }
 
+  public transformFilterObject(
+    request: DataSourceRequest
+  ): { [key: string]: any } {
+    const filter: { [key: string]: any } = {};
+    for (const filterName of Object.keys(request.filters)) {
+      for (const key of Object.keys(request.filters[filterName])) {
+        set(filter, key, request.filters[filterName][key]);
+      }
+    }
+    return filter;
+  }
+
   public sortFormatName(sort: SortInfo): SortInfoValue {
     const obj: { [key: string]: string } = {};
     const order = sort.order === SortInfoOrder.ascend ? 'ASC' : 'DESC';
